@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextflix-app
+  labels:
+    app: nextflix-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextflix-app
+  template:
+    metadata:
+      labels:
+        app: nextflix-app
+    spec:
+      containers:
+      - name: nextflix-app
+        image: milstein/nextflix:latest
+        ports:
+        - containerPort: 3000
